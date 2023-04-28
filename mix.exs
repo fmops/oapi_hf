@@ -1,13 +1,18 @@
-defmodule OapiHf.MixProject do
+defmodule TextGenerationInference.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :oapi_hf,
+      app: :text_generation_inference,
       version: "0.1.0",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      description:
+        "Elixir bindings for HuggingFace [Text Generation Inference](https://github.com/huggingface/text-generation-inference) API.",
+      package: package(),
+      deps: deps(),
+      name: "text_generation_inference",
+      source_url: "https://github.com/fmops/text_generation_inference.ex"
     ]
   end
 
@@ -33,7 +38,16 @@ defmodule OapiHf.MixProject do
        runtime: false},
       {:tesla, "~> 1.4"},
       {:finch, "~> 0.16"},
-      {:jason, ">= 1.0.0"}
+      {:jason, "~> 1.4"}
+    ]
+  end
+
+  defp package() do
+    [
+      files: ["lib", "mix.exs", "README*", "LICENSE*"],
+      maintainers: ["@feynmanliang"],
+      licenses: ["Apache-2.0"],
+      links: %{"GitHub" => "https://github.com/fmops/text_generation_inference.ex"}
     ]
   end
 end

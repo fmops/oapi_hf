@@ -1,7 +1,6 @@
-# oapi_hf
+# text_generation_inference.ex
 
-Elixir bindings for HuggingFace [Text Generation Inference](https://github.com/huggingface/text-generation-inference) HTTP API.
-
+Elixir bindings for HuggingFace [Text Generation Inference](https://github.com/huggingface/text-generation-inference) API.
 
 ## Installation
 
