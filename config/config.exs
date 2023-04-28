@@ -10,4 +10,4 @@ config :oapi_generator,
   ]
 
 config :tesla,
-  adapter: {Tesla.Adapter.Finch, name: OpenAI.Finch}
+  adapter: {Tesla.Adapter.Finch, name: TextGenerationInference.Finch}
