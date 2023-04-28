@@ -11,18 +11,23 @@ defmodule TextGenerationInference.Client do
     api_key = Keyword.get(data.opts, :api_key)
     base_url = Keyword.get(data.opts, :base_url)
 
-    middleware = @base_middleware
+    middleware =
+      [{Tesla.Middleware.BaseUrl, base_url} | @base_middleware]
+      |> then(fn m ->
+        if api_key != nil do
+          [
+            {Tesla.Middleware.Headers,
+             [
+               {"Authorization", "Bearer #{api_key}"}
+             ]}
+            | m
+          ]
+        else
+          m
+        end
+      end)
 
-    tesla =
-      [
-        {Tesla.Middleware.BaseUrl, base_url},
-        {Tesla.Middleware.Headers,
-         [
-           {"Authorization", "Bearer #{api_key}"}
-         ]}
-        | middleware
-      ]
-      |> Tesla.client()
+    tesla = Tesla.client(middleware)
 
     req_struct =
       struct(
