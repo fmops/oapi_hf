@@ -1,0 +1,2 @@
+defmodule TextGenerationInference do
+end

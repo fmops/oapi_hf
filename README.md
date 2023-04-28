@@ -1,11 +1,12 @@
-# OapiHf
+# oapi_hf
 
-**TODO: Add description**
+Elixir bindings for HuggingFace [Text Generation Inference](https://github.com/huggingface/text-generation-inference) HTTP API.
+
 
 ## Installation
 
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `oapi_hf` to your list of dependencies in `mix.exs`:
+The package can be installed by adding `oapi_hf` to your list of dependencies in
+`mix.exs`:
 
 ```elixir
 def deps do
@@ -15,7 +16,10 @@ def deps do
 end
 ```
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at <https://hexdocs.pm/oapi_hf>.
+## Usage
 
+To regenerate
+
+```sh
+mix api.gen default vendor/text-generation-inference/docs/openapi.json 
+```

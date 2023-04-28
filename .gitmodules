@@ -1,0 +1,3 @@
+[submodule "vendor/text-generation-inference"]
+	path = vendor/text-generation-inference
+	url = https://github.com/huggingface/text-generation-inference.git
