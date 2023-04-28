@@ -25,7 +25,10 @@ defmodule OapiHf.MixProject do
       # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.3", only: [:dev, :test], runtime: false},
-      {:oapi_generator, git: "https://github.com/feynmanliang/open-api-generator", branch: "handle-spaced-operations"}
+      {:oapi_generator, git: "https://github.com/feynmanliang/open-api-generator", branch: "handle-spaced-operations"},
+      {:tesla, "~> 1.4"},
+      {:finch, "~> 0.16"},
+      {:jason, ">= 1.0.0"}
     ]
   end
 end
