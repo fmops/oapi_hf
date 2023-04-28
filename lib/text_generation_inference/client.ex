@@ -5,30 +5,62 @@ defmodule TextGenerationInference.Client do
       :openai_base_url,
       "https://api-inference.huggingface.co/models/bigscience/bloomz"
     )},
+    {Tesla.Middleware.Headers, [
+      {"Content-Type", "application/json"}
+    ]},
     Tesla.Middleware.JSON
   ]
 
   def request(data) do
     api_key = Keyword.get(data.opts, :api_key)
-    middleware = [
-      {Tesla.Middleware.Headers, [
-         {"Authorization", "Bearer #{api_key}"}
-      ]}
-      | @base_middleware
-    ]
 
-    tesla = Tesla.client(middleware)
+    middleware = @base_middleware
+
+    tesla =
+      if api_key != nil do
+        [
+          {Tesla.Middleware.Headers, [
+            {"Authorization", "Bearer #{api_key}"}
+          ]} | middleware
+        ]
+      else
+        middleware
+      end
+      |> Tesla.client()
+
+    req_struct = struct(data.request
+      |> Enum.find(fn {s, _} -> s == "application/json" end)
+      |> elem(1)
+      |> elem(0))
+    req = Enum.reduce Map.to_list(req_struct), req_struct, fn {k, _}, acc ->
+      case Map.fetch(data.body, k) do
+        {:ok, v} -> %{acc | k => v}
+        :error -> acc
+      end
+    end
+
+    body = req
+    |> Map.from_struct()
+    |> Map.filter(fn {_, v} -> v != nil end)
+    |> Jason.encode!()
 
     tesla
     |> Tesla.request(
       method: data.method,
       url: data.url,
-      body: Map.get(data, :body, nil))
+      body: body
+    )
     |> case do
-      {:ok, %Tesla.Env{status: 200, body: body}} ->
-        struct = struct(data.response |> Enum.at(0) |> elem(1) |> elem(0))
-        resp = Enum.reduce Map.to_list(struct), struct, fn {k, _}, acc ->
-          case Map.fetch(body, Atom.to_string(k)) do
+      {:ok, %Tesla.Env{status: status, body: resp_body}} ->
+        # TODO: why is this a list?
+        resp_body = resp_body |> Enum.at(0)
+
+        resp_struct = struct(data.response
+        |> Enum.find(fn {s, _} -> s == status end)
+        |> elem(1)
+        |> elem(0))
+        resp = Enum.reduce Map.to_list(resp_struct), resp_struct, fn {k, _}, acc ->
+          case Map.fetch(resp_body, Atom.to_string(k)) do
             {:ok, v} -> %{acc | k => v}
             :error -> acc
           end

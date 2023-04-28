@@ -10,18 +10,19 @@ defmodule TextGenerationInference.TextGenerationInference do
 
   """
   @spec compat_generate(TextGenerationInference.CompatGenerateRequest.t(), keyword) ::
-          :ok | {:error, TextGenerationInference.ErrorResponse.t()}
+          {:ok, TextGenerationInference.GenerateResponse.t()}
+          | {:error, TextGenerationInference.ErrorResponse.t()}
   def compat_generate(body, opts \\ []) do
     client = opts[:client] || @default_client
 
     client.request(%{
       call: {TextGenerationInference.TextGenerationInference, :compat_generate},
-      url: "/",
+      url: "",
       body: body,
       method: :post,
       request: [{"application/json", {TextGenerationInference.CompatGenerateRequest, :t}}],
       response: [
-        {200, nil},
+        {200, {TextGenerationInference.GenerateResponse, :t}},
         {422, {TextGenerationInference.ErrorResponse, :t}},
         {424, {TextGenerationInference.ErrorResponse, :t}},
         {429, {TextGenerationInference.ErrorResponse, :t}},

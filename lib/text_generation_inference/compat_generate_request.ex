@@ -5,11 +5,12 @@ defmodule TextGenerationInference.CompatGenerateRequest do
 
   @type t :: %__MODULE__{
           inputs: String.t(),
+          options: TextGenerationInference.CompatGenerateOptions.t() | nil,
           parameters: TextGenerationInference.GenerateParameters.t() | nil,
           stream: boolean | nil
         }
 
-  defstruct [:inputs, :parameters, :stream]
+  defstruct [:inputs, :options, :parameters, :stream]
 
   @doc false
   @spec __fields__(atom) :: keyword
@@ -18,6 +19,7 @@ defmodule TextGenerationInference.CompatGenerateRequest do
   def __fields__(:t) do
     [
       inputs: :string,
+      options: {TextGenerationInference.CompatGenerateOptions, :t},
       parameters: {TextGenerationInference.GenerateParameters, :t},
       stream: :boolean
     ]
