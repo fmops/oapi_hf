@@ -1,6 +1,8 @@
 # text_generation_inference.ex
+[![Build Status](https://github.com/fmops/text_generation_inference.ex/workflows/Elixir%20CI/badge.svg)](https://github.com/fmops/text_generation_inference.ex/actions/workflows/elixir.yml) [![Hex.pm](https://img.shields.io/hexpm/v/text_generation_inference.svg)](https://hex.pm/packages/text_generation_inference) [![Documentation](https://img.shields.io/badge/documentation-gray)](https://hexdocs.pm/text_generation_inference)
 
-Elixir bindings for HuggingFace [Text Generation Inference](https://github.com/huggingface/text-generation-inference) API.
+
+OpenAPI generated Elixir bindings for HuggingFace [Text Generation Inference](https://github.com/huggingface/text-generation-inference) API.
 
 ## Installation
 
