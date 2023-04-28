@@ -4,8 +4,9 @@ defmodule TextGenerationInference.Application do
   @impl true
   def start(_type, _args) do
     children = [
-      {Finch, name: TextGenerationInference.Finch},
+      {Finch, name: TextGenerationInference.Finch}
     ]
+
     opts = [strategy: :one_for_one, name: TextGenerationInference.Supervisor]
     Supervisor.start_link(children, opts)
   end
