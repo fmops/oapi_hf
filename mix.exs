@@ -4,7 +4,7 @@ defmodule TextGenerationInference.MixProject do
   def project do
     [
       app: :text_generation_inference,
-      version: "0.1.0",
+      version: "0.1.1",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
       description:
