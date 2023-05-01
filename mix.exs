@@ -37,7 +37,7 @@ defmodule TextGenerationInference.MixProject do
        branch: "handle-spaced-operations",
        only: [:dev],
        runtime: false},
-      {:tesla, "~> 1.4"},
+      {:tesla, "~> 1.6"},
       {:finch, "~> 0.16"},
       {:jason, "~> 1.4"}
     ]

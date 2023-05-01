@@ -9,7 +9,7 @@ defmodule TextGenerationInference.Client do
 
   def request(data) do
     api_key = Keyword.get(data.opts, :api_key)
-    base_url = Keyword.get(data.opts, :base_url)
+    base_url = Keyword.get(data.opts, :base_url, "https://api-inference.huggingface.co/models/bigscience/bloomz")
 
     middleware =
       if api_key != nil do
