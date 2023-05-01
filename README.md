@@ -12,7 +12,7 @@ The package can be installed by adding `oapi_hf` to your list of dependencies in
 ```elixir
 def deps do
   [
-    {:oapi_hf, "~> 0.1.0"}
+    {:text_generation_inference, "~> 0.1"}
   ]
 end
 ```
