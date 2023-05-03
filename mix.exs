@@ -34,7 +34,7 @@ defmodule TextGenerationInference.MixProject do
       {:dialyxir, "~> 1.3", only: [:dev, :test], runtime: false},
       {:oapi_generator,
        git: "https://github.com/feynmanliang/open-api-generator",
-       branch: "handle-spaced-operations",
+       ref: "8e6b20eaf95a1276a9925571453e2d973103050a",
        only: [:dev],
        runtime: false},
       {:tesla, "~> 1.6"},
