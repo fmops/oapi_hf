@@ -17,7 +17,7 @@ defmodule TextGenerationInference.TextGenerationInference do
 
     client.request(%{
       call: {TextGenerationInference.TextGenerationInference, :compat_generate},
-      url: "",
+      url: "/",
       body: body,
       method: :post,
       request: [{"application/json", {TextGenerationInference.CompatGenerateRequest, :t}}],
