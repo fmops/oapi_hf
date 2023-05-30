@@ -16,6 +16,7 @@ defmodule TextGenerationInference.TextGenerationInference do
     client = opts[:client] || @default_client
 
     client.request(%{
+      args: [body: body],
       call: {TextGenerationInference.TextGenerationInference, :compat_generate},
       url: "/",
       body: body,
@@ -43,6 +44,7 @@ defmodule TextGenerationInference.TextGenerationInference do
     client = opts[:client] || @default_client
 
     client.request(%{
+      args: [body: body],
       call: {TextGenerationInference.TextGenerationInference, :generate},
       url: "/generate",
       body: body,
@@ -69,6 +71,7 @@ defmodule TextGenerationInference.TextGenerationInference do
     client = opts[:client] || @default_client
 
     client.request(%{
+      args: [body: body],
       call: {TextGenerationInference.TextGenerationInference, :generate_stream},
       url: "/generate_stream",
       body: body,
