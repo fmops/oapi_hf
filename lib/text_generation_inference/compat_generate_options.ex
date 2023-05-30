@@ -2,6 +2,7 @@ defmodule TextGenerationInference.CompatGenerateOptions do
   @moduledoc """
   Provides struct and type for CompatGenerateOptions
   """
+  use TextGenerationInference.JasonEncoder
 
   @type t :: %__MODULE__{use_cache: boolean | nil, wait_for_model: boolean | nil}
 

@@ -2,6 +2,7 @@ defmodule TextGenerationInference.PrefillToken do
   @moduledoc """
   Provides struct and type for PrefillToken
   """
+  use TextGenerationInference.JasonEncoder
 
   @type t :: %__MODULE__{id: integer, logprob: number | nil, text: String.t()}
 

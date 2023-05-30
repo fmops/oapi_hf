@@ -2,6 +2,7 @@ defmodule TextGenerationInference.CompatGenerateRequest do
   @moduledoc """
   Provides struct and type for CompatGenerateRequest
   """
+  use TextGenerationInference.JasonEncoder
 
   @type t :: %__MODULE__{
           inputs: String.t(),
