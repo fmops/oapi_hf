@@ -2,6 +2,7 @@ defmodule TextGenerationInference.StreamDetails do
   @moduledoc """
   Provides struct and type for StreamDetails
   """
+  use TextGenerationInference.JasonEncoder
 
   @type t :: %__MODULE__{
           finish_reason: String.t(),

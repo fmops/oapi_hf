@@ -5,9 +5,7 @@ if Mix.env() == :dev do
     default: [
       base_location: "lib/text_generation_inference",
       base_module: TextGenerationInference,
-      rename: [
-        {"Text Generation Inference", "TextGenerationInference{}"}
-      ]
+      schema_use: TextGenerationInference.JasonEncoder
     ]
 end
 

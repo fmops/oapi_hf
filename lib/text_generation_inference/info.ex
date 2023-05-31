@@ -2,6 +2,7 @@ defmodule TextGenerationInference.Info do
   @moduledoc """
   Provides struct and type for Info
   """
+  use TextGenerationInference.JasonEncoder
 
   @type t :: %__MODULE__{
           docker_label: String.t() | nil,

@@ -2,6 +2,7 @@ defmodule TextGenerationInference.GenerateResponse do
   @moduledoc """
   Provides struct and type for GenerateResponse
   """
+  use TextGenerationInference.JasonEncoder
 
   @type t :: %__MODULE__{details: map | nil, generated_text: String.t()}
 

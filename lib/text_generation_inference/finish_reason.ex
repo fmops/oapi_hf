@@ -2,6 +2,7 @@ defmodule TextGenerationInference.FinishReason do
   @moduledoc """
   Provides struct and type for FinishReason
   """
+  use TextGenerationInference.JasonEncoder
 
   @type t :: %__MODULE__{}
 

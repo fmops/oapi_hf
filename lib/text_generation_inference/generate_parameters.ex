@@ -2,6 +2,7 @@ defmodule TextGenerationInference.GenerateParameters do
   @moduledoc """
   Provides struct and type for GenerateParameters
   """
+  use TextGenerationInference.JasonEncoder
 
   @type t :: %__MODULE__{
           best_of: integer | nil,

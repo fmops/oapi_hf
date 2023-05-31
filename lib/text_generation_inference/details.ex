@@ -2,6 +2,7 @@ defmodule TextGenerationInference.Details do
   @moduledoc """
   Provides struct and type for Details
   """
+  use TextGenerationInference.JasonEncoder
 
   @type t :: %__MODULE__{
           best_of_sequences: [TextGenerationInference.BestOfSequence.t()] | nil,

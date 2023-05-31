@@ -2,6 +2,7 @@ defmodule TextGenerationInference.ErrorResponse do
   @moduledoc """
   Provides struct and type for ErrorResponse
   """
+  use TextGenerationInference.JasonEncoder
 
   @type t :: %__MODULE__{error: String.t(), error_type: String.t()}
 

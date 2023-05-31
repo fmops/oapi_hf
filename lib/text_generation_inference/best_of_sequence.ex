@@ -2,6 +2,7 @@ defmodule TextGenerationInference.BestOfSequence do
   @moduledoc """
   Provides struct and type for BestOfSequence
   """
+  use TextGenerationInference.JasonEncoder
 
   @type t :: %__MODULE__{
           finish_reason: String.t(),

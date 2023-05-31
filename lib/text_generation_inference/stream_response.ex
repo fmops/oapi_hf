@@ -2,6 +2,7 @@ defmodule TextGenerationInference.StreamResponse do
   @moduledoc """
   Provides struct and type for StreamResponse
   """
+  use TextGenerationInference.JasonEncoder
 
   @type t :: %__MODULE__{
           details: map | nil,

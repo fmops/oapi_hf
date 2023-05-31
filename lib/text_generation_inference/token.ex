@@ -2,6 +2,7 @@ defmodule TextGenerationInference.Token do
   @moduledoc """
   Provides struct and type for Token
   """
+  use TextGenerationInference.JasonEncoder
 
   @type t :: %__MODULE__{id: integer, logprob: number | nil, special: boolean, text: String.t()}
 

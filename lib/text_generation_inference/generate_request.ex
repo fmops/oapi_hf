@@ -2,6 +2,7 @@ defmodule TextGenerationInference.GenerateRequest do
   @moduledoc """
   Provides struct and type for GenerateRequest
   """
+  use TextGenerationInference.JasonEncoder
 
   @type t :: %__MODULE__{
           inputs: String.t(),
